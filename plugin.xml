@@ -27,8 +27,11 @@
         <source-file src="lib/android/com/bluefletch/motorola/BarcodeScan.java" target-dir="src/com/bluefletch/motorola" />
         <source-file src="lib/android/com/bluefletch/motorola/ScanCallback.java" target-dir="src/com/bluefletch/motorola" />
         <source-file src="lib/android/com/bluefletch/motorola/DataWedgeIntentHandler.java" target-dir="src/com/bluefletch/motorola" />
-        <source-file src="lib/android/com/bluefletch/motorola/ApplicationIdentifiers.java" target-dir="src/com/bluefletch/motorola" />
-        <source-file src="lib/android/com/bluefletch/motorola/DataWedgeParser.java" target-dir="src/com/bluefletch/motorola" />
+        <source-file src="lib/android/com/bluefletch/motorola/scanhelpers/ApplicationIdentifiers.java" target-dir="src/com/bluefletch/motorola/scanhelpers" />
+        <source-file src="lib/android/com/bluefletch/motorola/scanhelpers/DataWedgeParser.java" target-dir="src/com/bluefletch/motorola/scanhelpers" />
+        <source-file src="lib/android/com/bluefletch/motorola/scanhelpers/BarcodeParser.java" target-dir="src/com/bluefletch/motorola/scanhelpers" />
+        <source-file src="lib/android/com/camera/IntentIntegrator.java" target-dir="src/com/android" />
+        <source-file src="lib/android/com/camera/IntentResult.java" target-dir="src/com/android" />
         <source-file src="src/android/com/bluefletch/motorola/plugin/MotorolaDatawedgePlugin.java" target-dir="src/com/bluefletch/motorola/plugin" />
     </platform>
 

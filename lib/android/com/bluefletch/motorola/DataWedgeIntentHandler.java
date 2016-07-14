@@ -149,54 +149,5 @@ public class DataWedgeIntentHandler extends Activity {
 
     @SuppressLint("LongLogTag")
     private void parseDataWedgeBarcode(Intent intent) {
-        Bundle extras = intent.getExtras();
-        ArrayList<CharSequence> scanContent = extras.getCharSequenceArrayList("com" +
-                ".motorolasolutions.emdk.datawedge.decode_data");
-
-        String scanFormat = extras.getString("com.motorolasolutions.emdk.datawedge" +
-                ".label_type");
-        String barcode = extras.getString("com.motorolasolutions.emdk.datawedge.data_string");
-
-        if (scanFormat == null) return;
-
-        byte[] bytes = (byte[]) ((List<?>) scanContent).get(0);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(DataWedgeIntentHandler.this);
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface
-                .OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-        if (scanFormat.equals("LABEL-TYPE-EAN128")) {
-            DataWedgeParser dataWedgeParser = new DataWedgeParser(bytes);
-
-            String globalTradeItemNumber = dataWedgeParser.getGlobalTradeItemNumber();
-
-            if (globalTradeItemNumber.isEmpty()) {
-                Log.d("Scan status", "No GTIN found in that GS1-128 Barcode");
-            }
-
-            String lot = dataWedgeParser.getLot();
-            String quantity = dataWedgeParser.getQuantity();
-            String useThroughDateString = dataWedgeParser.getUseThroughDate();
-            String packedDateString = dataWedgeParser.getPackDate();
-
-            Log.d("Scan Result", "");
-            Log.d("Global Trade Item Number", globalTradeItemNumber);
-            Log.d("Lot", lot);
-            Log.d("Quantity", quantity);
-            Log.d("User Through Date", useThroughDateString);
-            Log.d("Packer Date", packedDateString);
-
-            scanCallback.execute(new BarcodeScan(scanFormat, barcode, globalTradeItemNumber,
-                    lot, quantity, useThroughDateString, packedDateString));
-
-        } else {
-            builder.setMessage("You scanned a '" + scanFormat + "' which is currently" +
-                    " not supported");
-            builder.create().show();
-        }
     }
 }

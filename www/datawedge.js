@@ -51,6 +51,12 @@ DataWedge.prototype.registerForBarcode = function (callback) {
     
     exec(callback, null, 'MotorolaDataWedge', 'scanner.register', []);
 };
+/**
+ * Check Laser Device
+ */
+DataWedge.prototype.checkLaser = function (callback) {
+    exec(callback, null, 'MotorolaDataWedge', 'scanner.checklaser', []);
+};
 
 /**
  * De-register a callback for scan events.  
@@ -77,11 +83,17 @@ DataWedge.prototype.unregisterMagstripe = function () {
 };
 
 /**
- * Manually turn on barcode scanner
+ * Trigger laser scanner manually
  */
-DataWedge.prototype.startScanner = function () {
+DataWedge.prototype.startLaserScanner = function () {
     
-    exec(null, null, 'MotorolaDataWedge', 'scanner.softScanOn', []);
+    exec(null, null, 'MotorolaDataWedge', 'scanner.laserScanOn', []);
+};
+/**
+ * Trigger camera scanner manually
+ */
+DataWedge.prototype.startCameraScanner = function () {
+    exec(null, null, 'MotorolaDataWedge', 'scanner.cameraScanOn', []);
 };
 
 /**
