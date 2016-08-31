@@ -33,7 +33,6 @@
         <source-file src="lib/android/com/camera/IntentIntegrator.java" target-dir="src/com/android" />
         <source-file src="lib/android/com/camera/IntentResult.java" target-dir="src/com/android" />
         <source-file src="src/android/com/bluefletch/motorola/plugin/MotorolaDatawedgePlugin.java" target-dir="src/com/bluefletch/motorola/plugin" />
-        <source-file src="src/android/com/foodlogiq/connect/MainActivity.java" target-dir="src/com/foodlogiq/connect" />
         <source-file src="assets/dwprofile_FoodLogiQ.db" target-dir="assets" />
     </platform>
 
