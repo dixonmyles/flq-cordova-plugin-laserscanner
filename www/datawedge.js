@@ -95,7 +95,12 @@ DataWedge.prototype.startLaserScanner = function () {
 DataWedge.prototype.startCameraScanner = function () {
     exec(null, null, 'MotorolaDataWedge', 'scanner.cameraScanOn', []);
 };
-
+/**
+ * Import datawedge database
+ */
+DataWedge.prototype.importDB = function () {
+    exec(null, null, 'MotorolaDataWedge', 'scanner.dbimport', []);
+};
 /**
  * Manually turn off barcode scanner
  */
