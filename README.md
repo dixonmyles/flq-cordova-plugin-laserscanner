@@ -6,7 +6,7 @@ This is a Cordova/Phonegap plugin to interact with Motorola ruggedized devices' 
 =============
 
 This plugin is compatible with plugman.  To install, run the following from your project command line: 
-```$ cordova plugin add https://github.com/toboroz/fql-cordova-plugin-laserscanner.git```
+```$ cordova plugin add https://github.com/pavka9178/fql-cordova-plugin-laserscanner.git```
 
 
 ==============
