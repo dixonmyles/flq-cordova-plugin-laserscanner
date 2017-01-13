@@ -318,9 +318,9 @@ public class MotorolaDatawedgePlugin extends CordovaPlugin {
      * The datawedge configuration should be stored in the $ROOT/src/main/assets/
      */
     private void importDataWedgeConfig() throws IOException {
-        InputStream in = this.cordova.getActivity().getResources().getAssets().open("dwprofile_FoodLogiQ.db");
+        InputStream in = this.cordova.getActivity().getResources().getAssets().open("datawedge.db");
         OutputStream out = new FileOutputStream
-                ("/enterprise/device/settings/datawedge/autoimport/dwprofile_FoodLogiQ.db");
+                ("/enterprise/device/settings/datawedge/autoimport/datawedge.db");
         byte[] buffer = new byte[1024];
         int read;
         while ((read = in.read(buffer)) != -1) {
@@ -330,6 +330,6 @@ public class MotorolaDatawedgePlugin extends CordovaPlugin {
         out.flush();
         out.close();
         Runtime.getRuntime().exec("chmod 777 " +
-                "/enterprise/device/settings/datawedge/autoimport/dwprofile_FoodLogiQ.db");
+                "/enterprise/device/settings/datawedge/autoimport/datawedge.db");
     }
 }
