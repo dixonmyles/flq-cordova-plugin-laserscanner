@@ -165,8 +165,8 @@ public class MotorolaDatawedgePlugin extends CordovaPlugin {
      */
     @Override
     public void onResume(boolean multitasking) {
-        super.onResume(multitasking);
-        mainActivity.start();
+      super.onResume(multitasking);
+      mainActivity.start();
     }
 
     boolean zxingStarted = false;

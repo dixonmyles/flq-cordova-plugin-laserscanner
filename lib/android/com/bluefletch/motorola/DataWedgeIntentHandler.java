@@ -50,19 +50,6 @@ public class DataWedgeIntentHandler{
         this.dataWedgeAction = action;
     }
 
-//    protected ScanCallback<BarcodeScan> scanCallback;
-
-//    public void setScanCallback(ScanCallback<BarcodeScan> callback) {
-//        scanCallback = callback;
-//    }
-
-//    protected ScanCallback<List<String>> magstripeCallback;
-//
-//    public void setMagstripeReadCallback(ScanCallback<List<String>> callback) {
-//        magstripeCallback = callback;
-//    }
-
-
     public DataWedgeIntentHandler(Context context) {
         TAG = this.getClass().getSimpleName();
         applicationContext = context;
