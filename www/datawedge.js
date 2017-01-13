@@ -1,3 +1,4 @@
+cordova.define("com.bluefletch.motorola.MotorolaDataWedge", function(require, exports, module) {
 var cordova = require('cordova');
 var exec = require('cordova/exec');
 
@@ -12,12 +13,13 @@ function DataWedge() {
 
 /**
  * Turn on DataWedge (default profile) and listen for event.  Listens for hardward button events.
- * 
+ *
  * @param successCallback - Success function should expect a barcode to be passed in
- * @param intentAction - action to listen for.  This is what you configured in the DataWedge app.  
+ * @param intentAction - action to listen for.  This is what you configured in the DataWedge app.
  *       Defaults to: "com.bluefletch.motorola.datawedge.ACTION";
  */
 DataWedge.prototype.start = function (intentAction) {
+    console.log("Starting with intentAction: ", intentAction);
     var args = [];
     if (intentAction) {
         args[0] = intentAction;
@@ -28,7 +30,7 @@ DataWedge.prototype.start = function (intentAction) {
  * Turn off DataWedge plugin
  */
 DataWedge.prototype.stop = function () {
-  
+
     exec(null, null, 'MotorolaDataWedge', 'stop', []);
 };
 
@@ -48,7 +50,7 @@ DataWedge.prototype.switchProfile = function (profileName) {
  * Register a callback for scan events.  This function will be called when barcdoes are read
  */
 DataWedge.prototype.registerForBarcode = function (callback) {
-    
+    console.log("Registering for Barcode");
     exec(callback, null, 'MotorolaDataWedge', 'scanner.register', []);
 };
 /**
@@ -59,10 +61,10 @@ DataWedge.prototype.checkLaser = function (callback) {
 };
 
 /**
- * De-register a callback for scan events.  
+ * De-register a callback for scan events.
  */
 DataWedge.prototype.unregisterBarcode = function () {
-    
+
     exec(null, null, 'MotorolaDataWedge', 'scanner.unregister', []);
 };
 
@@ -70,15 +72,15 @@ DataWedge.prototype.unregisterBarcode = function () {
  * Register a callback for magstripe reads
  */
 DataWedge.prototype.registerForMagstripe = function (callback) {
-    
+
     exec(callback, null, 'MotorolaDataWedge', 'magstripe.register', []);
 };
 
 /**
- * De-register a callback for magstripe events.  
+ * De-register a callback for magstripe events.
  */
 DataWedge.prototype.unregisterMagstripe = function () {
-    
+
     exec(null, null, 'MotorolaDataWedge', 'magstripe.unregister', []);
 };
 
@@ -86,7 +88,7 @@ DataWedge.prototype.unregisterMagstripe = function () {
  * Trigger laser scanner manually
  */
 DataWedge.prototype.startLaserScanner = function () {
-    
+
     exec(null, null, 'MotorolaDataWedge', 'scanner.laserScanOn', []);
 };
 /**
@@ -95,7 +97,12 @@ DataWedge.prototype.startLaserScanner = function () {
 DataWedge.prototype.startCameraScanner = function () {
     exec(null, null, 'MotorolaDataWedge', 'scanner.cameraScanOn', []);
 };
-
+/**
+ * Import datawedge database
+ */
+DataWedge.prototype.importDB = function () {
+    exec(null, null, 'MotorolaDataWedge', 'scanner.dbimport', []);
+};
 /**
  * Manually turn off barcode scanner
  */
@@ -110,3 +117,5 @@ DataWedge.prototype.stopScanner = function () {
 var DataWedge = new DataWedge();
 
 module.exports = DataWedge;
+
+});
