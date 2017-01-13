@@ -1,4 +1,3 @@
-cordova.define("com.bluefletch.motorola.MotorolaDataWedge", function(require, exports, module) {
 var cordova = require('cordova');
 var exec = require('cordova/exec');
 
@@ -30,7 +29,6 @@ DataWedge.prototype.start = function (intentAction) {
  * Turn off DataWedge plugin
  */
 DataWedge.prototype.stop = function () {
-
     exec(null, null, 'MotorolaDataWedge', 'stop', []);
 };
 
@@ -72,7 +70,6 @@ DataWedge.prototype.unregisterBarcode = function () {
  * Register a callback for magstripe reads
  */
 DataWedge.prototype.registerForMagstripe = function (callback) {
-
     exec(callback, null, 'MotorolaDataWedge', 'magstripe.register', []);
 };
 
@@ -88,7 +85,6 @@ DataWedge.prototype.unregisterMagstripe = function () {
  * Trigger laser scanner manually
  */
 DataWedge.prototype.startLaserScanner = function () {
-
     exec(null, null, 'MotorolaDataWedge', 'scanner.laserScanOn', []);
 };
 /**
@@ -117,5 +113,3 @@ DataWedge.prototype.stopScanner = function () {
 var DataWedge = new DataWedge();
 
 module.exports = DataWedge;
-
-});
