@@ -289,27 +289,13 @@ public class MotorolaDatawedgePlugin extends CordovaPlugin {
      * Prompts the user to import our datawedge profile, if it hasn't already been imported.
      */
     private void dbimport() {
-        if ((new File("/enterprise/device/settings/datawedge/autoimport/")).isDirectory()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.cordova.getActivity());
-            builder.setMessage("Import Datawedge");
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    try {
-                        importDataWedgeConfig();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                }
-            });
-            builder.create().show();
+      if ((new File("/enterprise/device/settings/datawedge/autoimport/")).isDirectory()) {
+        try {
+            importDataWedgeConfig();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
+      }
     }
     /**
      * Loads the datawedge profile from assets into the datawedge autoimport folder, which is picked
